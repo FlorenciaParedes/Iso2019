@@ -1,27 +1,31 @@
 #!/bin/bash
 #Realizar una calculadora que ejecute las 4 operaciones básicas: +, - ,*, %. Esta calcu-
 #ladora debe funcionar recibiendo la operación y los números como parámetros
-
-opciones="suma resta multiplicacion divicion salir"
-select opcion in $opciones; do
-	if [ $opcion = "suma" ]; then
-		let suma=$(($1+$2))
-		echo "La suma es: $suma"
-	fi
-	if [ $opcion = "resta" ]; then
-		let resta=$(($1-$2))
-		echo "La resta es: $resta"
-	fi
-	if [ $opcion = "multiplicacion" ]; then
-		let multi=$(($1*$2))
-		echo "La multiplicacion es: $multi"
-	fi
-	if [ $opcion = "divicion" ]; then
-		let div=$(($1/$2))
-		echo "La divicion es: $div"
-	fi
-	if [ $opcion = "salir" ]; then
-		echo "adios"
-		exit
-	fi
-done;
+if [ $# -ne 2 ]; then
+	echo "Ingresar 2 numeros "
+	exit
+else
+	opciones="suma resta multiplicacion divicion salir"
+	select opcion in $opciones; do
+		if [ $opcion = "suma" ]; then
+			let suma=$(($1+$2))
+			echo "La suma es: $suma"
+		fi
+		if [ $opcion = "resta" ]; then
+			let resta=$(($1-$2))
+			echo "La resta es: $resta"
+		fi
+		if [ $opcion = "multiplicacion" ]; then
+			let multi=$(($1*$2))
+			echo "La multiplicacion es: $multi"
+		fi
+		if [ $opcion = "divicion" ]; then
+			let div=$(($1/$2))
+			echo "La divicion es: $div"
+		fi
+		if [ $opcion = "salir" ]; then
+			echo "adios"
+			exit
+		fi
+	done;
+fi
