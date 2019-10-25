@@ -1,0 +1,17 @@
+#!/bin/bash
+#realizar un script que le solicite al usuario 2 números, los lea de la entrada Standard
+#e imprima la multiplicación, suma, resta y cual es el mayor de los números leídos.
+
+echo "Ingrese dos numeros"
+read numero1 numero2
+let suma=$(($numero1+$numero2))
+echo "La suma es: $suma"
+
+let resta=$(($numero1-$numero2))
+echo "La resta es: $resta"
+
+if [ $numero1 -gt $numero2 ]; then
+	echo "EL mayor es: $numero1"
+else
+	echo "El mayor es: $numero2"
+fi
