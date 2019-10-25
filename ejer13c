@@ -1,0 +1,20 @@
+#!/bin/bash
+#Crear un script que reciba como parámetro el nombre de un archivo e informe si el
+#mismo existe o no, y en caso afirmativo indique si es un directorio o un archivo. En
+#caso de que no exista el archivo/directorio cree un directorio con el nombre recibido
+#como parámetro.
+
+if [ $# -ne 0 ]; then
+        echo "IMPRIMO: $1"
+        if [ -e $1 ]; then
+                echo "El archivo existe "
+                if [ -d $1 ]; then
+                        echo "y es un Directorio"
+                elif [ -f $1 ]; then
+                        echo "y es un Fichero "
+                fi
+        else
+                echo "Creando directorio "
+                mkdir $1
+        fi
+fi
